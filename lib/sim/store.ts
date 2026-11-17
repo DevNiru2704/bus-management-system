@@ -105,8 +105,18 @@ export function subscribe(cb: () => void) {
 export const getSnapshot = () => snap;
 export const getNotes = () => notes;
 
+/**
+ * Brings this tab up to date with the shared log before anything is written. Some pages only send events
+ * (report an issue, driver SOS) and never subscribe, so without this they would write into an empty log
+ * and wipe the demo.
+ */
+function sync() {
+  if (!readStorage() && epoch === 0) reset(false);
+}
+
 /** Adds one event to the shared log and tells every open tab. */
 export function dispatch(ev: NewEvent) {
+  sync();
   log = [...log, { ...ev, id: `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`, t: Date.now() } as SimEvent];
   writeStorage();
   channel?.postMessage("log");
