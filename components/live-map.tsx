@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { Circle, CircleMarker, MapContainer, Marker, Polyline, TileLayer, useMap } from "react-leaflet";
 import { ROUTES } from "@/lib/sim/data.ts";
 import { busIcon } from "./bus-icon";
+import { useMapReady } from "./use-map-ready";
 import type { BusView } from "@/lib/sim/engine.ts";
 
 const youIcon = L.divIcon({
@@ -39,12 +40,13 @@ export default function LiveMap({
   label: string;
   className?: string;
 }) {
+  const live = useMapReady();
   const route = ROUTES[routeId];
   const line = route.path.points;
   const stop = stopId ? route.stops.find((s) => s.id === stopId) : undefined;
   return (
     <div role="img" aria-label={label} className={className} style={{ isolation: "isolate" }}>
-      <MapContainer bounds={line} zoomControl={false} scrollWheelZoom={false} style={{ height: "100%", width: "100%" }}>
+      {live && <MapContainer bounds={line} zoomControl={false} scrollWheelZoom={false} style={{ height: "100%", width: "100%" }}>
         <TileLayer url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" attribution="&copy; OpenStreetMap contributors" maxZoom={19} />
         <Fit bounds={line} padBottom={padBottom} />
         <Polyline positions={line} pathOptions={{ color: "#ffffff", weight: 12, lineCap: "round", lineJoin: "round" }} />
@@ -61,7 +63,7 @@ export default function LiveMap({
         {buses.map((b) => (
           <Marker key={b.def.id} position={b.pos} icon={busIcon(b.status, 52, b.def.label)} zIndexOffset={1000} />
         ))}
-      </MapContainer>
+      </MapContainer>}
     </div>
   );
 }

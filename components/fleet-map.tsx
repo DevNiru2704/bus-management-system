@@ -5,6 +5,7 @@ import L from "leaflet";
 import { useEffect } from "react";
 import { Circle, CircleMarker, MapContainer, Marker, Polyline, TileLayer, useMap } from "react-leaflet";
 import { busIcon } from "./bus-icon";
+import { useMapReady } from "./use-map-ready";
 import { ROUTES } from "@/lib/sim/data.ts";
 import type { LatLng } from "@/lib/sim/geo.ts";
 import type { BusView } from "@/lib/sim/engine.ts";
@@ -40,11 +41,12 @@ export default function FleetMap({
   label: string;
   className?: string;
 }) {
+  const live = useMapReady();
   const routes = routeId ? [ROUTES[routeId]] : Object.values(ROUTES);
   const all: LatLng[] = routes.flatMap((r) => r.path.points);
   return (
     <div role="img" aria-label={label} className={className} style={{ isolation: "isolate" }}>
-      <MapContainer bounds={all} zoomControl={false} scrollWheelZoom style={{ height: "100%", width: "100%" }}>
+      {live && <MapContainer bounds={all} zoomControl={false} scrollWheelZoom style={{ height: "100%", width: "100%" }}>
         <TileLayer url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" attribution="&copy; OpenStreetMap contributors" maxZoom={19} />
         <Fit bounds={all} focus={focus} zoom={zoom} padRight={padRight} />
         {routes.map((r) => (
@@ -63,7 +65,7 @@ export default function FleetMap({
         {buses.filter((b) => b.status !== "inactive" || routeId).map((b) => (
           <Marker key={b.def.id} position={b.pos} icon={busIcon(b.status, b.status === "emergency" ? 64 : 48, b.def.label)} zIndexOffset={b.status === "emergency" ? 2000 : 1000} />
         ))}
-      </MapContainer>
+      </MapContainer>}
     </div>
   );
 }
