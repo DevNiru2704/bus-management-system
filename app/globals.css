@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+/* Design tokens: mirrored from the Figma variables "v2 Color" and "v2 Space & Radius". */
+@theme {
+  --color-brand: #12315e;
+  --color-brand-deep: #0c2347;
+  --color-brand-tint: #e6ecf5;
+  --color-taxi: #ffc20e;
+  --color-taxi-tint: #fff4cc;
+
+  --color-page: #f4f6f9;
+  --color-card: #ffffff;
+  --color-sunken: #e9edf3;
+  --color-board: #0f1a2b;
+  --color-board-dim: #3a4660;
+  --color-line: #d5dce6;
+  --color-line-strong: #b6c0cf;
+
+  --color-ink: #10233f;
+  --color-ink-2: #4a5a73;
+  --color-on-taxi: #12315e;
+
+  --color-st-active: #15803d;
+  --color-st-active-bg: #ddf3e4;
+  --color-st-delayed: #c2410c;
+  --color-st-delayed-bg: #ffe8d6;
+  --color-st-breakdown: #b91c1c;
+  --color-st-breakdown-bg: #fde2e2;
+  --color-st-inactive: #5b6678;
+  --color-st-inactive-bg: #e8ecf2;
+  --color-st-completed: #1d4ed8;
+  --color-st-completed-bg: #dce7fd;
+  --color-st-emergency: #991b1b;
+
+  --color-map-land: #eaefe9;
+  --color-map-park: #d6e6d0;
+  --color-map-water: #cde0f0;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 28px;
+
+  --shadow-raised: 0 4px 16px rgb(18 49 94 / 0.1);
+  --shadow-sheet: 0 -8px 32px rgb(18 49 94 / 0.16);
+
+  /* Glyph coverage decides the face, so mixed English / Bengali / Hindi text just works. */
+  --font-display: var(--f-display), var(--f-bengali), var(--f-devanagari), system-ui, sans-serif;
+  --font-sans: var(--f-ui), var(--f-bengali), var(--f-devanagari), system-ui, sans-serif;
+  --font-board: var(--f-board), ui-monospace, monospace;
+
+  /* Motion: only these four durations, ease-out only. */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root {
+  --d-100: 100ms;
+  --d-150: 150ms;
+  --d-200: 200ms;
+  --d-300: 300ms;
+  --lh-scale: 1;
+}
+
+/* Bengali and Hindi need more line height than Latin text. */
+:lang(bn),
+:lang(hi) {
+  --lh-scale: 1.1;
+}
+
+html {
+  background: var(--color-page);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100dvh;
+}
+
+/* Text styles from the Figma file. Weights stay at 400, 500 and 600. */
+@layer components {
+  .t-display-l { font-family: var(--font-display); font-weight: 600; font-size: 32px; line-height: calc(1.15 * var(--lh-scale)); letter-spacing: -0.01em; }
+  .t-display-m { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: calc(1.2 * var(--lh-scale)); letter-spacing: -0.005em; }
+  .t-title { font-weight: 600; font-size: 18px; line-height: calc(1.25 * var(--lh-scale)); }
+  .t-body { font-weight: 400; font-size: 16px; line-height: calc(1.5 * var(--lh-scale)); }
+  .t-body-m { font-weight: 500; font-size: 16px; line-height: calc(1.5 * var(--lh-scale)); }
+  .t-secondary { font-weight: 400; font-size: 14px; line-height: calc(1.5 * var(--lh-scale)); }
+  .t-secondary-m { font-weight: 500; font-size: 14px; line-height: calc(1.5 * var(--lh-scale)); }
+  .t-label { font-weight: 600; font-size: 14px; line-height: calc(1.3 * var(--lh-scale)); }
+  .t-meta { font-weight: 400; font-size: 12px; line-height: calc(1.4 * var(--lh-scale)); }
+  .t-meta-m { font-weight: 500; font-size: 12px; line-height: calc(1.4 * var(--lh-scale)); }
+  .t-board-digits { font-family: var(--font-board); font-weight: 800; font-size: 44px; line-height: 1; }
+  .t-board-route { font-family: var(--font-board); font-weight: 800; font-size: 20px; line-height: 1.1; }
+}
+
+/* Visible keyboard focus everywhere. */
+:focus-visible {
+  outline: 3px solid var(--color-brand);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Reduced motion: every transition and animation becomes instant. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Leaflet map: quieter tiles so the route and buses read first, and markers that glide between positions. */
+.leaflet-container { font-family: var(--font-sans); background: var(--color-map-land); }
+.leaflet-tile-pane { filter: saturate(0.5) brightness(1.05) contrast(0.92); }
+.sb-bus { background: none; border: 0; transition: transform 1s linear; }
+.leaflet-control-attribution { font-size: 11px; }
+
+/* Entry and sheet motion. Position and opacity only, ease-out only, 200 or 300 ms (the hero is two 300 ms steps). */
+@keyframes hero-route { 0% { transform: scaleX(0.08); } 50% { transform: scaleX(0.5); } 100% { transform: scaleX(1); } }
+@keyframes hero-bus { 0% { transform: translateX(0); } 50% { transform: translateX(calc(var(--hero-w) * 0.5)); } 100% { transform: translateX(var(--hero-w)); } }
+@keyframes fade-up { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes sheet-up { from { transform: translateY(100%); } to { transform: none; } }
+@keyframes scrim-in { from { opacity: 0; } to { opacity: 1; } }
+.hero-route { transform-origin: left center; animation: hero-route 600ms var(--ease-out) both; }
+.hero-bus { animation: hero-bus 600ms var(--ease-out) both; }
+.fade-up { animation: fade-up 300ms var(--ease-out) both; }
+.sheet-up { animation: sheet-up 200ms var(--ease-out) both; }
+.scrim-in { animation: scrim-in 200ms var(--ease-out) both; }
