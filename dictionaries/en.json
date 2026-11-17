@@ -1,0 +1,341 @@
+{
+  "common": {
+    "appName": "Smart Bus",
+    "back": "Back",
+    "cancel": "Cancel",
+    "continue": "Continue",
+    "save": "Save",
+    "edit": "Edit",
+    "close": "Close",
+    "sos": "SOS",
+    "updatedJustNow": "Updated just now",
+    "minutes": "{n} min",
+    "minutesAgo": "{n} min ago",
+    "about": "about {n} min",
+    "range": "{a}-{b} min",
+    "arrivingNow": "Arriving now",
+    "language": "Language",
+    "over30": "over 30 min",
+    "demo": "Demo controls"
+  },
+  "status": {
+    "active": "Active",
+    "delayed": "Delayed",
+    "breakdown": "Breakdown",
+    "inactive": "Inactive",
+    "completed": "Trip completed",
+    "emergency": "Emergency"
+  },
+  "board": {
+    "onTime": "ON TIME",
+    "late": "{n} MIN LATE",
+    "estimate": "ESTIMATE",
+    "stopped": "BUS STOPPED",
+    "min": "MIN",
+    "notStarted": "NOT STARTED",
+    "paused": "SERVICE PAUSED",
+    "stops": "STOPS",
+    "ofStops": "OF {n} STOPS",
+    "next": "NEXT: {stop}",
+    "now": "NOW"
+  },
+  "splash": {
+    "tagline": "Know whether your bus is really coming."
+  },
+  "roles": {
+    "title": "Who is using Smart Bus?",
+    "passenger": {
+      "name": "Passenger",
+      "desc": "Track buses, get alerts, use SOS"
+    },
+    "driver": {
+      "name": "Driver",
+      "desc": "Start a trip and share your location"
+    },
+    "admin": {
+      "name": "Administrator",
+      "desc": "Monitor buses, incidents and analytics"
+    }
+  },
+  "language": {
+    "title": "Choose your language",
+    "sub": "You can change this any time in Settings.",
+    "sample": {
+      "en": "Bus 24 is delayed by 11 minutes.",
+      "bn": "বাস ২৪ এগারো মিনিট দেরিতে চলছে।",
+      "hi": "बस 24 ग्यारह मिनट देरी से चल रही है।"
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "alerts": "Alerts",
+    "settings": "Settings"
+  },
+  "home": {
+    "title": "Where are you waiting?",
+    "search": "Route, stop or bus number",
+    "yourStop": "Your stop · {stop}",
+    "alsoNear": "Also near you",
+    "noResults": "No bus matches that search. Try a route number or a stop name."
+  },
+  "live": {
+    "title": "Bus {no} to {dest}",
+    "delayedBanner": "Delayed by traffic. About {n} min behind schedule.",
+    "breakdownBanner": "This bus has broken down. Last seen at {stop}.",
+    "signalGap": "No position for 90 s. The bus may be in a signal gap, so we show a range.",
+    "nextBus": "Next bus on this route",
+    "noAltTitle": "No other bus is running on this route",
+    "noAltBody": "Consider another way to travel. We will tell you if one starts.",
+    "voice": "Voice alerts",
+    "stopLeft": "Left {time}",
+    "stopYours": "Your stop",
+    "stopAfter": "Next after yours",
+    "stopAway": "{m} m away",
+    "stopHere": "At stop now",
+    "stopNotYet": "Not reached yet",
+    "sheetHandle": "Drag to see more or less",
+    "back": "Back to home",
+    "mapLabel": "Live map of bus {no}",
+    "emergencyBanner": "This trip has been suspended after an emergency. Please use another bus."
+  },
+  "alerts": {
+    "title": "Alerts",
+    "footer": "Alerts you missed are kept here, so you never return to an empty screen.",
+    "empty": "No alerts yet. If your bus is delayed or has a problem, you will see it here.",
+    "delayed": "Bus {bus} has been delayed due to a technical issue.",
+    "approaching": "Your bus is approximately {n} minutes away.",
+    "nearby": "Your bus is approaching your stop.",
+    "breakdown": "Bus {bus} has broken down. Next bus approximately {n} minutes away.",
+    "resumed": "Bus {bus} has resumed service. Estimated arrival {n} minutes.",
+    "nextBus": "The next bus on your route is approximately {n} minutes away.",
+    "breakdownNone": "Bus {bus} has broken down. No other bus is running on this route right now."
+  },
+  "settings": {
+    "title": "Settings",
+    "voice": "Voice alerts",
+    "voiceHelp": "Turning this on speaks a short test so you know it works. If your phone has no voice for your language, alerts show as text only. Every spoken message also shows as text.",
+    "voiceTest": "Voice alerts are on.",
+    "voiceMissing": "This phone has no voice for this language, so alerts will show as text only.",
+    "emergency": "Emergency contact",
+    "emergencyValue": "Add a name and phone number",
+    "emergencyHelp": "Shared with administrators if you raise an SOS.",
+    "delivery": "Notifications",
+    "deliveryValue": "Live while the app is open. Email if you have closed it."
+  },
+  "sos": {
+    "title": "Emergency SOS",
+    "note": "This alerts the transport operator's administrators only. It does not contact police, ambulance or fire services. In an emergency, call 112.",
+    "hold": "Hold",
+    "keepHolding": "Keep holding",
+    "idleCaption": "Press and hold for 3 seconds. This prevents accidental alerts.",
+    "left2": "Keep holding. 2 seconds left.",
+    "left1": "Keep holding. 1 second left.",
+    "held": "Held",
+    "heldCaption": "Held for 3 seconds.",
+    "confirmTitle": "Send SOS to administrators?",
+    "confirmBody": "They will see your name, location and the bus you are on. Your emergency contact is shared if you added one.",
+    "send": "Send SOS",
+    "sentTitle": "SOS sent at {time}",
+    "sentBody": "Administrators have your location and trip details. Stay where you are if it is safe.",
+    "stepRaised": "SOS raised",
+    "stepRecorded": "Recorded",
+    "stepAlerted": "Administrator alerted",
+    "stepAck": "Acknowledged",
+    "waiting": "Waiting",
+    "backToBus": "Back to my bus",
+    "left3": "Keep holding. 3 seconds left.",
+    "passengerKind": "Passenger SOS"
+  },
+  "driver": {
+    "role": "Driver",
+    "loginTitle": "Driver log in",
+    "email": "Email",
+    "password": "Password",
+    "login": "Log in",
+    "greeting": "Good morning, {name}",
+    "todaysBus": "Your bus today",
+    "routeLine": "{from} to {to}. {n} stops.",
+    "notYourBus": "Not your bus? Ask the administrator.",
+    "confirmBus": "Confirm this bus",
+    "readyTitle": "Ready to start?",
+    "readyBody": "Starting the trip turns on location sharing. Your phone sends the bus position every few seconds. Keep this screen on while driving.",
+    "startTrip": "Start trip",
+    "startSub": "Location sharing begins",
+    "sharing": "Sharing location every {n} s",
+    "issue": "Report an issue",
+    "issueSub": "Delay or breakdown",
+    "resume": "Resume service",
+    "resumeOff": "Available after an issue",
+    "resumeOn": "Problem fixed? Tap to continue",
+    "sosSub": "Hold for 3 seconds",
+    "pausedAt": "Paused {time}",
+    "pausedNote": "Passengers have been told. Administrator alerted.",
+    "whatHappened": "What happened?",
+    "reasons": {
+      "mechanical": "Mechanical problem",
+      "breakdown": "Vehicle breakdown",
+      "flatTyre": "Flat tyre",
+      "traffic": "Traffic disruption",
+      "emergency": "Emergency",
+      "other": "Other"
+    },
+    "reasonHelp": "A fixed list means nothing to type while you are stopped. Passengers see it in their language.",
+    "sendReport": "Send report",
+    "tripComplete": "Trip complete",
+    "started": "Started",
+    "ended": "Ended",
+    "stopsReached": "Stops reached",
+    "delayAtFinish": "Delay at finish",
+    "completeNote": "Location sharing has stopped. This trip helps make tomorrow's arrival times more accurate.",
+    "backToStart": "Back to start",
+    "sosTitle": "Driver SOS",
+    "sosTypes": {
+      "accident": "Accident",
+      "medical": "Medical emergency",
+      "security": "Security issue",
+      "vehicle": "Serious vehicle problem"
+    },
+    "sosCaption": "Trip status becomes Emergency. Routine arrival alerts stop for this trip."
+  },
+  "admin": {
+    "nav": {
+      "live": "Live",
+      "incidents": "Incidents",
+      "buses": "Buses",
+      "drivers": "Drivers",
+      "routes": "Routes",
+      "analytics": "Analytics"
+    },
+    "attention": {
+      "title": "Needs attention",
+      "open": "{n} open",
+      "none": "Nothing needs attention right now."
+    },
+    "sosDriverTitle": "Driver SOS on Bus {bus}",
+    "sosPassengerTitle": "Passenger SOS on Bus {bus}",
+    "sosDetail": "{kind} reported near {place}.",
+    "acknowledge": "Acknowledge",
+    "acknowledged": "Acknowledged",
+    "view": "View",
+    "issueTitleHalt": "Bus {bus} stopped near {place}",
+    "issueTitleSlow": "Bus {bus} slowed near {place}",
+    "issueDetailHalt": "{reason}. Passengers on route {route} have been told and shown the next bus.",
+    "issueDetailSlow": "{reason}. Passengers on route {route} have been told.",
+    "busesOnRoad": "Buses on the road",
+    "kpi": {
+      "active": "Active buses",
+      "delayed": "Delayed",
+      "breakdowns": "Breakdowns",
+      "avgDelay": "Average delay",
+      "trips": "Active trips"
+    },
+    "paused": "paused",
+    "onTime": "on time",
+    "detail": {
+      "sosTitle": "SOS {id}",
+      "incidentTitle": "Incident {id}",
+      "raisedBy": "Raised by",
+      "busTrip": "Bus and trip",
+      "type": "Type",
+      "position": "Last position",
+      "raisedAt": "Raised at",
+      "reason": "Reason",
+      "reportedAt": "Reported at",
+      "duration": "Duration",
+      "timeline": "Timeline",
+      "actionTaken": "Action taken",
+      "actionHint": "For example: called the driver, sent a support vehicle",
+      "ackSos": "Acknowledge SOS",
+      "ackedAt": "Acknowledged at {time}",
+      "note": "Your response is recorded. This SOS does not contact police, ambulance or fire services. Call 112 if the driver needs them.",
+      "stepRaised": "SOS raised",
+      "stepRecorded": "Recorded with position",
+      "stepAlerted": "Administrators alerted",
+      "stepAck": "Acknowledged",
+      "pending": "Pending",
+      "reportedStep": "Reported by driver",
+      "resolvedStep": "Service resumed",
+      "ongoing": "Ongoing",
+      "driverRole": "{name} (driver)",
+      "passengerRole": "A passenger",
+      "back": "Back to live view",
+      "notFound": "That incident was not found. The demo may have been restarted."
+    },
+    "incidents": {
+      "title": "Incidents and SOS",
+      "empty": "No incidents yet.",
+      "sos": "SOS",
+      "issue": "Issue",
+      "open": "Open",
+      "resolved": "Resolved"
+    },
+    "buses": {
+      "title": "Buses",
+      "register": "Register bus",
+      "search": "Search bus, registration or driver",
+      "allStatuses": "All statuses",
+      "allRoutes": "All routes",
+      "cols": {
+        "bus": "Bus",
+        "registration": "Registration",
+        "route": "Route",
+        "driver": "Driver",
+        "status": "Status",
+        "seats": "Seats"
+      },
+      "unassigned": "Unassigned",
+      "seatsNote": "Seating capacity is optional. No feature in this version depends on it.",
+      "soon": "Not available in this version",
+      "empty": "No bus matches those filters."
+    },
+    "drivers": {
+      "title": "Drivers",
+      "add": "Add driver",
+      "search": "Search driver, licence or phone",
+      "allDuty": "All duty states",
+      "cols": {
+        "driver": "Driver",
+        "licence": "Licence",
+        "phone": "Phone",
+        "bus": "Assigned bus",
+        "duty": "On duty"
+      },
+      "onTrip": "On trip",
+      "onTripPaused": "On trip, paused",
+      "offDuty": "Off duty",
+      "unassigned": "Unassigned"
+    },
+    "routes": {
+      "title": "Route {code}",
+      "sub": "{from} to {to}",
+      "stops": "Stops in order",
+      "radius": "Radius {m} m",
+      "geofence": "{stop} geofence",
+      "help": "Use 150 m among tall buildings or on a wide road, and 60 m only where two stops are very close. A stop that misbehaves can be fixed here without a developer.",
+      "saved": "Changes apply immediately.",
+      "chooseRoute": "Route"
+    },
+    "analytics": {
+      "title": "Analytics",
+      "range": {
+        "d7": "7 days",
+        "d30": "30 days",
+        "d90": "90 days"
+      },
+      "sample": "Sample figures. A live system computes these from completed trips.",
+      "kpi": {
+        "onTime": "On-time performance",
+        "avgDelay": "Average delay",
+        "tripTime": "Average trip time",
+        "breakdowns": "Breakdowns"
+      },
+      "delayByRoute": "Average delay by route",
+      "delayByRouteSub": "Route 12 is the longest, so start there.",
+      "delayByHour": "Delay by time of day",
+      "delayByHourSub": "The evening peak is the problem, not the route.",
+      "affected": "Frequently affected buses",
+      "breakdownsCount": "{n} breakdowns",
+      "minutesUnit": "min"
+    }
+  }
+}
